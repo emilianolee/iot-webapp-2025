@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML태그학습</title>
+</head>
+<body>
+    <h1>헤딩1</h1>
+    <hr>
+    <h2><a href="#lorem">헤딩2</a></h2>
+    <hr>
+    <h3>헤딩3</h3>
+    <h4>헤딩4</h4>
+    <h5>헤딩5</h5>
+    <h6>헤딩6 : 글자 크기가 너무 작아요...</h6>
+    <p>문장영역입니다.
+       두번째 문장입니다.
+       HTML에서는 엔터가 표현되지 않습니다.<br> 그래서 br을 사용합니다!<br>
+       스페이스도 하나이           상 표현이 안됩니다.<br>
+       그래서 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;특수문자를 사용합니다
+       특수문자에는 &와 ; 사이에 문자로 표현합니다.
+       &lt;b&gt;와 같은 특수문자가 수천개 존재합니다. <br>
+       a태그 target은 _blank(새탭), self(현재페이지변경), _parent(부모창[탭]이 변경)
+       Oracle&trade; <a href="https://www.microsoft.com" target="_blank">Microsoft &copy; Ltd.</a> 
+    </p>
+    <p>문장영역2입니다.</p>
+    <div>첫번째 영역 : CSS로 화면 디자인할 때 영역을 구분할 때 사용</div>
+    <div>두번째 영역 : 화면디자인 시 무지막지하게 많이 사용됨</div>
+    <p>세번째 문장영역입니다. 샘플텍스트를 만들어주는 기능이 존재합니다.<br> 
+        lorem숫자를 입력하고 탭을 누릅니다. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus iure, at sequi eaque ad neque expedita dolores quos provident nihil rerum rem beatae in! Animi et necessitatibus maiores unde officia!</p>
+    <p id="lorem"><b>Lorem</b><strong>ipsum</strong><i>dolor</i><u>sit</u><ins>amet</ins>
+        <small>consectetur</small> E=mc<sup>2</sup><br>    
+        log<sub>2</sub>(10)
+        <del>adipisicing elit.</del> Perspiciatis magnam aliquid optio repudiandae tempore animi expedita et praesentium vel labore molestiae, tenetur incidunt totam unde at officiis repellendus natus nihil illo iure ipsa ullam odio. Aliquid rerum animi ad praesentium maxime. Minima officiis, perspiciatis temporibus expedita quibusdam voluptatum alias blanditiis ab veniam nam natus quis deserunt corrupti quam voluptatibus nemo perferendis dolorum nisi in maxime id facilis dolores eaque. Totam neque eveniet accusamus quos. Mollitia molestiae vero reiciendis tempore nemo ducimus quia assumenda? Hic corporis est non deserunt voluptas impedit optio deleniti, repellat sit possimus distinctio at suscipit incidunt nisi quisquam cum. Dolore nesciunt sed fugit facere unde deleniti molestiae voluptate magnam qui beatae omnis, ipsam consectetur excepturi aut dolores reiciendis. Architecto eligendi placeat sed sunt illo provident harum ad ratione quibusdam! In omnis debitis, ipsum atque ratione quibusdam maiores aspernatur perspiciatis blanditiis eligendi error totam sequi facilis voluptatum illum nemo sed molestiae exercitationem velit, distinctio harum, suscipit sapiente. Eaque perferendis, porro quaerat libero eius ad unde? Unde culpa reprehenderit tenetur et ut fugiat repudiandae corporis. Id doloribus voluptatibus veniam consequatur beatae asperiores ratione, libero rerum debitis perspiciatis laborum culpa deleniti repellendus impedit, eveniet magnam quo error quibusdam? Dolorem, maxime!</p>
+    <h3>네비게이션 메뉴</h3>
+    <p>메뉴는 대부분 ul(unordered list)로 생성합니다. ordered list도 존재</p>
+    <ul>
+        <li><a href="https://mail.naver.com" target="_blank">메일</a></li>
+        <li>카페</li>
+        <li>블로그</li>
+        <li>스토어</li>
+        <li>뉴스</li>
+    </ul>  
+    
+    <ol>
+        <li><a href="https://mail.daum.net" target="_blank">메일</a></li>
+        <li>카페</li>
+        <li>블로그</li>
+        <li>스토어</li>
+        <li>뉴스</li>
+    </ol> 
+    <h3>테이블</h3>
+    <p>xaml에 Grid와 동일한 기능</p>
+    <table border="1">
+        <tr>
+            <th>1번</th>
+            <th>2번</th>
+            <th>3번</th>
+            <th>4번</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+            <td rowspan="2">400</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td colspan="2" style="text-align: center;">300</td>
+        </tr>
+    </table>
+    <h3>이미지</h3>
+    <image src="../image/wpf021.png" width="500"/>
+</body>
+</html>
