@@ -340,6 +340,7 @@
     - Bootstrap Image Gallery
 
 
+https://github.com/user-attachments/assets/70440767-8f1e-4815-ad36-a6aa5b295552
 
 
 ## 4일차
@@ -381,6 +382,7 @@
 10. 전체화면
 
 
+https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
 
 
 ### 5일차
