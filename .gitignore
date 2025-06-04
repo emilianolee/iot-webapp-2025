@@ -399,3 +399,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/day06
+/day06/Day06Study
+/day07/Day07Study
+/day08/Day08Study
