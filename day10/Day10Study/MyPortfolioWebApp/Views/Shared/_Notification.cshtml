@@ -1,0 +1,28 @@
+﻿<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+@if (TempData["Success"] != null)
+{
+    // toastr.optinos로 위치나 닫기버튼 등을 수정할 수 있음
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "showDuration": "200",
+        }
+        toastr.info('@TempData["Success"]');
+    </script>
+    <h3 style="color: limegreen">@TempData["Success"]</h3>
+
+}
+
+@if (TempData["error"] != null)
+{
+    <script>
+        toastr.error('@TempData["error"]');
+    </script>
+    <h3 style="color: red">@TempData["error"]</h3>
+
+}
