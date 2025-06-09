@@ -836,7 +836,7 @@ https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
 
 ### Visual Studio 개발 Tip
 - 이전 솔루션을 복사하고 나서 MSBuild에서 오류가 발생할 가능성이 있음
-- 이를 대비해서 프로젝트 내 bin, obj 폴더를 삭제 후 
+- 이를 대비해서 프로젝트 내 bin, obj 폴더를 삭제 후
 - VS를 다시 실행하면 bin, obj 폴더를 재생성
 
 ### ASP.NET Core 실습
@@ -845,12 +845,12 @@ https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
 1. 회원가입/로그인 계속
     - 자동생성 테이블
         - AspNetRoleClaims : 역할 내 모든 사용자에게 부여되는 클레임(권리 - 편집가능, 작성가능, ...)
-        - AspNetRoles : 역할 저장 테이블(관리자, 사용자, 뷰어...)
+        - AspNetRoles : 역할저장 테이블(관리자, 사용자, 뷰어...)
         - AspNetUserClaims : 사용자가 소유한 클레임
         - AspNetUserLogins : 사용자를 로그인에 연결
-        - AspNetUserRoles : 사용자 테이블, 역할 테이블을 연결하는 Join Entity
-        - **AspNetUsers** : 사용자 정보 테이블
-        - AspNetUserTokens : 사용자 인증 토큰 테이블
+        - AspNetUserRoles : 사용자테이블, 역할테일을 연결하는 Join entity
+        - **AspNetUsers** : 사용자정보 테이블
+        - AspNetUserTokens : 사용자 인증토큰 테이블
     - Models.RegisterModel 클래스 생성
     - AccountController 클래스 생성
         - Register(), Login() Get/Post 메서드 추가
@@ -858,19 +858,125 @@ https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
     - Login 뷰 추가
     - 각 기능별 버튼, 링크 추가
 
-2. 회원가입 정보 확장(강사님 리드미 확인~)
-    - Models.CustomUser 클래스 생성. IdentityUser를 상속
-    - Program.cs에서 IdentityUser -> CustomUser로 변경
-    - AccountController에서 IdentityUser -> CustomUser로 변경
+2. 회원가입 정보 확장
+    - Models.CustomUser 클래스 생성. IdentityUser를 상속. City, Mobile, Hobby 속성 추가
+    - Program.cs 에서 IdentityUser -> CustomUser로 변경
+    - AccountController 에서 IdentityUser -> CustomUser로 변경
+    - _Layout.cshtml, News.Index.cshtml, News.Detail.cshtml에 IdentityUser -> CustomUser로 변경
+    - ApplicationDbContext.cs에서 IdentityUser -> CustomUser로 변경
+    - NuGet 패키지 관리자 콘솔에서
+        - Add-Migration (이름) 실행, Update-Database 실행
+    - Account.Register.cshtml 입력양식 추가
+    - AccountController.cs Register() Post 메서드 수정
+    - Program.cs에서 패스워드 정책을 간단하게 변경
+
 3. 게시판 준비
+    - MySql Workbench에서 Board 테이블 생성
+    - NuGet 패키지 관리자 콘솔에서 DB스캐폴드
+        - Scaffold-DbContext "Server=localhost;..." Pomelo.EntityFrameworkCore.MySql -OutputDir BackupModels
+    - BackupModels에서 필요한 모델클래스를 Models 이전, 수정
+    - ApplicationDbContext에 `DbSet<Board>` 추가
+    - Controller에 BoardController 클래스 스캐폴딩 생성
+
 4. 이후 작업
+    - HomeController Contact() Post메서드 신규 추가
+    - 메일관련 작업 - Pendding
 
-### ASP.NET Core API서버
-
-### AWS 클라우드 업로드
 
 ### 코딩테스트 현황
 - 보드 컨트롤러
 - 보드 인덱스
 - 보드 디테일 끝
 - 추가로 왜 Contents가 sql에 없다고 오류가 나지....ㅠ
+
+## 11일차
+
+### ASP.NET Core API서버(Web API)
+- 2000년도 초반, 웹서비스 이름의 변형
+- 웹을 통해서 데이터전달이 목적
+- API서버, WebAPI, RESTful Service, OpenAPI(공용)... 
+- 초기에는 XML을 데이터 전달로 사용
+- XML의 방대한 데이터크기때문에 현재는 JSON으로 거의 이전(XML의 1/3수준)
+- WebAPI 서버 사용처
+    - 하나의 서비스로 여러가지 앱에서 같이 사용할때
+    - 회사 ERP를 웹사이트, 모바일, PC앱으로 동시에 사용할때
+    - 알라딘 웹사이트, 모바일, PC책뷰어...
+
+#### Web API 만들기
+1. ASP.NET Core 웹 API로 프로젝트 생성
+2. Swagger 화면 확인
+3. Prgram.cs 소스 분석
+4. WeatherForecast 모델 클래스 확인
+5. WeatherForecastController 클래스 확인
+
+#### 웹서비스를 테스트 툴
+1. 웹브라우저 - URL을 입력, json뷰어확인
+2. Swagger UI - Visual Studio에 포함
+3. [Postman](https://www.postman.com/) - 가장 기능이 다양
+
+    <img src="./image/web029.png" width="600">
+
+#### 웹서비스 4가지 메서드
+- 일반 웹사이트에서의 GET/POST는 동일
+- `GET` - 리소스(데이터) 조회
+- `POST` - 요청 데이터 처리(저장, 수정, 삭제). 주로 등록에 사용
+- `PUT` - 리소스 대체, 주로 수정에 사용
+- `DELETE` - 리소스 삭제, 주로 삭제에 사용
+- PATCH - 리소스 부분 변경(수정). 거의 사용안함. PATCH메서드를 지원하지 않으면 PUT으로 대체
+
+#### WebAPI CRUD 작업 연습
+|API|설명|Request body|Response body|
+|:--|:--|:--|:--|
+|GET ~/api/books|모든 책정보 가져오기|None|책정보 배열|
+|GET ~/api/books/{id}|특정 책정보 가져오기|None|책정보 한 건|
+|POST ~/api/books|새 책 추가|Book 데이터|Book 데이터|
+|PUT ~/api/books/{id}|기존책 수정|Book|None|
+|DELET ~/api/books/{id}|기존책 삭제|None|None|
+
+<img src="./image/web026.png" width="600">
+
+1. WebAPI 프로젝트 생성
+2. Models.Book 모델 클래스 생성
+3. EntityFramework NuGet패키지 설치
+    - Microsoft.EntityFrameworkCore
+    - Pomelo.EntityFrameworkCore.MySql    
+4. appsettings.json DB연결문자열 추가
+5. MySQL Book 테이블 생성
+6. Models.AppDbContext 클래스 생성
+7. Program.cs AppDbContext 초기화 추가
+8. 스캐폴딩으로 Controller 생성
+    - API > EntityFramework 사용 동작이 포함된 API컨트롤러 선택
+
+    <img src="./image/web027.png" width="600">
+9. 서버 실행
+
+    <img src="./image/web028.png" width="600">
+
+#### OpenAPI 형식 WebAPI 연습
+1. IoT 센서데이터를 웹API 서비스
+2. Python에서 더미데이터 100만건 생성
+3. WebAPI 프로젝트 생성
+4. EntityFramework NuGet패키지 설치
+5. appsettings.json DB연결문자열 추가
+6. MySQL iot_datas 테이블 생성
+7. Models.iot_datas 클래스 생성
+8. Models.AppDbContext 클래스 생성
+9. Program.cs AppDbContext 초기화 추가
+10. 스캐폴딩으로 Controller 생성
+    - Get 메서드 외 모두 삭제
+11. Get 메서드 파라미터 추가, 쿼리 실행 로직 추가
+12. Swagger UI에서 테스트
+
+    <img src="./image/web030.png" width="600">
+
+13. 웹브라우저 실행 확인
+
+    <img src="./image/web031.png" width="600">
+
+## 12일차
+
+### ASP.NET Core API서버(계속)
+
+#### WebAPI 서버 + 웹사이트 + 윈앱
+
+### AWS 클라우드 업로드
