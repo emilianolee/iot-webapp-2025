@@ -883,12 +883,6 @@ https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
     - 메일관련 작업 - Pendding
 
 
-### 코딩테스트 현황
-- 보드 컨트롤러
-- 보드 인덱스
-- 보드 디테일 끝
-- 추가로 왜 Contents가 sql에 없다고 오류가 나지....ㅠ
-
 ## 11일차
 
 ### ASP.NET Core API서버(Web API)

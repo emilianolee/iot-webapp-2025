@@ -1,0 +1,54 @@
+﻿@model MyPortfolioWebApp.Models.Board
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section id="board" class="section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>게시판</h2>
+        <p>게시판입니다.</p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-controller="Board" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Email" />
+                    @* <div class="form-group mb-2">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div> *@
+                    <div class="form-group mb-2">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label asp-for="Contents" class="control-label"></label>
+                        <textarea asp-for="Contents" class="form-control editor"
+                                  rows="10" placeholder="본문내용"></textarea>
+                        <span asp-validation-for="Contents" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="저장" class="btn btn-sm btn-success btn-kelly" />
+                        <a asp-action="Index" class="btn btn-sm btn-success">리스트</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
