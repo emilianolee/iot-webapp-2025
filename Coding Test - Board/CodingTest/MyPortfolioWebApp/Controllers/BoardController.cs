@@ -90,11 +90,12 @@ namespace MyPortfolioWebApp.Controllers
         {
             var board = new Board
             {
+                Email = "admin@nate.com",
                 Writer = "관리자",
                 PostDate = DateTime.Now,
                 ReadCount = 0,
             };
-            return View();  // View로 데이터를 가져갈게 아무것도 없음
+            return View(board);  // View로 데이터를 가져갈게 아무것도 없음
         }
 
         // POST: Board/Create
@@ -102,10 +103,11 @@ namespace MyPortfolioWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Contents")] Board board)
+        public async Task<IActionResult> Create([Bind("Id,Email,Writer,Title,Contents,PostDate,ReadCount")] Board board)
         {
             if (ModelState.IsValid)
             {
+                board.Email = "admin@nate.com";
                 board.Writer = "관리자";    // 작성자는 자동으로 관리자
                 board.PostDate = DateTime.Now;   // 게시일자는 현재
                 board.ReadCount = 0;
@@ -141,7 +143,7 @@ namespace MyPortfolioWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Contents")] Board board)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Writer,Title,Contents,PostDate,ReadCount")] Board board)
         {
             if (id != board.Id)
             {
