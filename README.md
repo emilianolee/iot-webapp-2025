@@ -1087,3 +1087,9 @@ https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
 ## 15일차
 
 ### 전체 마무리
+
+## 코딩테스트 게시판 결과 영상
+
+
+https://github.com/user-attachments/assets/ba58ea06-63b0-477c-b7b6-3c9fbff25f4d
+
