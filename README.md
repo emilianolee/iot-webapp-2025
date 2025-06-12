@@ -1004,7 +1004,86 @@ https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
 ### ASP.NET Core API서버(계속)
 
 #### WebAPI 서버 + 웹사이트
+- WebAPI 서버는 전일자 프로젝트 사용
+- ASP.NET Core 프로젝트에서 정적페이지HTML, 동적페이지cshtml 동시 사용가능
+- 웹사이트만 새로 생성
+    1. ASP.NET Core 비어있음 으로 프로젝트 생성
+    2. wwwroot/html/index.html 파일 생성 - VS Code의 Live Server 예제와 동일(정적페이지)
+    3. Program.cs에서 MVC패턴 관련된 로직 추가
+    4. Controllers/HomeController.cs 생성
+    5. Index() 메서드에서 뷰 추가 - ASP.NET Core 동적페이지
+    6. Views 폴더 하위 파일들이 필요
+        - _ViewImports.cshtml
+        - _ViewStart.cshtml
+        - Shared/_Layout.cshtml.css 
+    7. index.html에 화면UI 구현
+    8. AJAX로 WebAPI 호출하고 데이터를 화면에 뿌리는 로직 추가
+    9. input 태그로 검색부분 구현
+        - Javascript와 데이터를 주고받으면 form태그가 없어도 됨
+        - `<form>` - 서버사이드와 데이터를 주고 받을때 필요
+    10. 입력부분 구현
+    11. jQuery 로직 구현
 
+- AJAX : Asyncronous Javascript And Xml. 자바스크립트에서 비동기로 메서드를 호출 기술
+    - 예전에 XML로만 데이터 전달. 현재는 Json으로 이전 중
 
+- CORS Policy Block : Cross-Origin Resource Sharing. 다른 출처 리소스 접근허용 보안 메커니즘
+    - 아무나 URL로 호출을 못하도록 웹페이지 보안설정
+    - WebAPI 서비스에서 Program.cs에 CORS 호출권한 설정 추가
+    - 프론트엔드는 CORS 설정 필요없음
+
+    <img src="./image/web033.png" width="400">
+
+## 14일차
+
+### ASP.NET Core API서버(계속)
+
+#### WebAPI 서버 + 웹사이트(계속)
+- 할일 수정/삭제
+- 실행 화면
+
+    <img src="./image/web034.png" width="600">
+
+- 결론
+    - WebAPI로 백엔드를 운영하면 프론트는 모두 사용 가능(윈앱, 웹앱, 모바일앱)
 
 ### AWS 클라우드 업로드
+- 클라우드 서비스 사용 : 어디서나 웹사이트 공개
+- 온프레미스 : 직접 서버를 구축. DB 서버 구축, 웹서버 구축 등 직접 운영
+    - 서버 하드웨어 구매, 서버실 구축, UPS 구성, 네트워크 스위치 구성
+    - OS구매, SW 구매, 운영환경 구성, 개발환경 구성
+    - 운영화면 문제 해결, 유지보수
+- 클라우드 : 서버구축 필요없음. DB서버 신청 생성
+    - 서버실 구축x, 하드웨어 구매x, SW구매x, 운영문제 관리x
+    - 최초 구축비용이 들지 않음
+    - 사용료가 비쌈
+
+- AWS 라이트세일 - https://aws.amazon.com/ko/lightsail/
+    - 기존 AWS보다 저렴하게 사용할 수 있는 서비스
+
+#### AWS 라이트세일에 웹서버 올리기
+1. 인스턴스 생성
+    1. Microsoft Windows > Windows Server 2019
+    2. network type은 Dual-stack
+    3. Select a size에서 $9.5 USD per month 택
+    4. 인스턴스 이름
+    5. 인스턴스 생성
+2. 인스턴스 관리 > RDP를 사용하여 연결
+    1. 초기화 대기(네트워크 나올 때 까지, 1분 가량)
+    2. Network2 허용 Yes 클릭
+    3. Server Manager 오픈
+        - Configure this local server   
+        - IE Enhanced Security Config : ON(웹사이트 오픈 불가) -> OFF
+3. 필요 SW 다운로드
+    - MySQL Installer for Windows
+    - 
+
+### 부가적인 기능
+- OAuth (구글로그인)
+- 파일업로드
+
+### MyPortfolio 완성
+
+## 15일차
+
+### 전체 마무리
