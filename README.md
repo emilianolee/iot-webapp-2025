@@ -1224,3 +1224,9 @@ https://github.com/user-attachments/assets/78e0ac48-c90d-45f3-a4a7-63a89ebefc2c
     - 최대 업로드 크기 설정
 
     <img src="./image/web040.png" width="600">
+
+## 웹사이트 게시판 구현(코딩테스트)
+
+
+https://github.com/user-attachments/assets/67d0df6a-4cd1-4f9d-b6f9-e94d8eeaa298
+
